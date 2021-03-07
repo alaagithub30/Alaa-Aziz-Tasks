@@ -1,7 +1,5 @@
 const fs = require('fs')
-const {
-    url
-} = require('inspector')
+
 const readFile = function () {
     try {
         customers = JSON.parse(fs.readFileSync('customers.json').toString())
@@ -53,8 +51,8 @@ const deleteCustomer = function (customer) {
 const readApi = function (apiname, id) {
     const https = require('https')
 
-    if (apiname == 'todos') {
-        const url = `https://jsonplaceholder.typicode.com/todos`
+    if (apiname == 'todos')  url = `https://jsonplaceholder.typicode.com/todos`
+    else if (apiname == 'albums') url = `https://jsonplaceholder.typicode.com/albums`
         const myRequest = https.request(url, (response) => {
             let data = ''
             response.on('data', (chunk) => {
@@ -62,44 +60,19 @@ const readApi = function (apiname, id) {
             })
             response.on('end', () => {
                 const body = JSON.parse(data)
-
-                // fs.writeFileSync('todos.json', JSON.stringify(body))
+                if(!id){ console.log(body)
+                } else {
                 const findID = body.findIndex(ids => {
-
                     if (ids.id == id) console.log(ids)
-
                 })
+                }
 
             })
         })
         myRequest.on('error', (error) => console.log('error'))
         myRequest.end()
-    } else if (apiname == 'albums') {
-        const url = `https://jsonplaceholder.typicode.com/albums`
-        const myRequest = https.request(url, (response) => {
-            let data = ''
-            response.on('data', (chunk) => {
-                data = data + chunk.toString()
-            })
-            response.on('end', () => {
-                const body = JSON.parse(data)
-
-
-                // fs.writeFileSync('albums.json', JSON.stringify(body))
-                const findID = body.findIndex(ids => {
-
-                    if (ids.id == id) console.log(ids)
-
-                })
-            })
-        })
-        myRequest.on('error', (error) => console.log('error'))
-        myRequest.end()
-    }
-
 
 }
-
 const showapibyid = function () {
 
 }

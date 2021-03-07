@@ -73,13 +73,14 @@ yagrs.command({
 yagrs.command({
     command:'showApibyId',
     builder :{
-        apiname:  {
-              type: 'string',    
+        apiname: {
+            type: 'string', 
+            demandOption:true   
+        },
+        id :{
+            type: 'number', 
+        }
     },
-    id :{
-        type: 'number', 
-    }
-},
     handler: function (argv) {
         myMethods.readApi(argv.apiname, argv.id)
     }
