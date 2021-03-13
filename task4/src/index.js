@@ -11,7 +11,7 @@ app.set('views', viewsDir)
 hbs.registerPartials(layoutDir)
 app.get('', (req,res)=>{
     res.render('home', {
-        name:'marwa'
+        name:'alaa'
     })
 })
 app.listen(3000)

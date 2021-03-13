@@ -1,0 +1,6 @@
+users => name, age, address
+form add user to db
+show all users
+show single user
+edit user
+delete user

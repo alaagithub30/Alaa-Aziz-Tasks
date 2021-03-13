@@ -2,8 +2,8 @@
 const express = require('express')
 const hbs = require('hbs')
 const path = require('path')
-const fetch = require('node-fetch');
-const { json } = require('express');
+//const fetch = require('node-fetch');
+//const { json } = require('express');
 //custom variables
 const PORT = 3000
 //create instance from express
@@ -24,7 +24,7 @@ const tasks = []
 app.get('', (req, res)=>{
     res.render('home',{
         pageName: 'home page',
-        userName:'marwa radwan'
+        userName:'alaa aziz'
     })
 })
 app.get('/allPosts', async (req,res)=>{
@@ -91,34 +91,45 @@ app.get('/allProducts/:id', async(req,res)=>{
         res.render('404')
     }
 })
-app.get('/addTask', (req,res)=>{
+app.get('/addNewCustomer', (req,res)=>{
     if(req.query.title && req.query.body){
-        task = {
+        customer = {
             title: req.query.title,
             body: req.query.body
         }
-        tasks.push(task)
-        res.redirect('/allTasks')
+        customers.push(customer)
+        res.redirect('/allCustomers')
     }
-    res.render('addTask')
+    res.render('addCustomer')
 })
-app.get('/allTasks', (req, res)=>{    
-    res.render('allTasks',{
-        pageName: 'All Tasks',
-        tasks: tasks,
+app.get('/allCustomers', (req, res)=>{    
+    res.render('allCustomers',{
+        pageName: 'All Customers',
+        customers: customers,
     })
 })
-app.get('/allTasks/:id', (req, res)=>{
+app.get('/allCustomers/:id', (req, res)=>{
     const id = req.params.id
-    res.render('singleTask',{
-        pageName: 'Single Task',
-        task : tasks[id] //{title:'sh', body:'gedvh', userId:'hh'}
+    res.render('singleCustomer',{
+        pageName: 'Single Customer',
+        customer : customers[id] //{title:'sh', body:'gedvh', userId:'hh'}
     })
 })
 app.get('*', (req, res)=>{
     res.render('404',{
         pageName: '404 error'
     })
+})
+app.get('/deleteCustomer', (req,res)=>{
+    if(req.query.title && req.query.body){
+        customer = {
+            title: req.query.title,
+            body: req.query.body
+        }
+        customers.push(customer)
+        res.redirect('/allCustomers')
+    }
+    res.render('deleteCustomer')
 })
 //run server
 app.listen(PORT)

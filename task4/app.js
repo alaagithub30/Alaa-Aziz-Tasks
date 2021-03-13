@@ -12,7 +12,7 @@ app.get('/services',(request, response)=>{
 })
 app.get('/json', (req, res)=>{
     res.send({
-        name:'marwa', age:36
+        name:'alaa', age:27
     })
 })
 app.listen(3000, ()=>{console.log('server on 3000')})
