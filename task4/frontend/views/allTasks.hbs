@@ -1,0 +1,16 @@
+{pageName: 'home page',
+userName: 'alaa aziz'
+})
+})
+app.get('/allTasks',async(req, res)=>{
+    try{
+        fData = await fetch('https://jsonplaceholder.typicode.com/posts_id=${id}')
+        jsonData = await fData.json()
+        res.render('allTasks',{
+            data: posts
+        })
+    }
+    catch(e){
+    res.render('404')
+    }
+})

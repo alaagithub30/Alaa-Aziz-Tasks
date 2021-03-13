@@ -1,0 +1,9 @@
+{{>header}}
+{{>navbar}}
+<section class="container my-5">
+    <h1 class="text-center">all products</h1>
+    {{#each data}}
+    <p>{{this.products_slug}}</p>
+    {{/each}}
+</section>
+{{>footer}}
