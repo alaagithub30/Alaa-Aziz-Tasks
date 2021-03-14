@@ -1,0 +1,53 @@
+===> user
+    id => auto increament ==> done
+    fname
+    lname
+    phone => optional
+    country => from list
+    password
+    image
+    address array of address
+    birthdate
+    email
+    username
+    friends [userid]
+
+post
+    _id
+    userid
+    content
+    type => text, image, video
+    num of likes
+    num of shares
+    comments [comment details, userid]
+
+user register
+activate account from email
+user login multiple devices
+logout
+logout from all devices
+show profile
+edit profile
+deactivate account
+remove account
+add friend
+remove friends
+add post
+share friend post
+remove his post
+edit his post
+like post
+comment on post
+remove like 
+remove comment
+show friend profile
+reset password
+change email with verfication
+
+
+
+start point
+npm init --y
+npm i express mongoose validator bcryptjs jsonwebtoken env-cmd multer
+npm i --save-dev nodemon
+npm run dev

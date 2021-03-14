@@ -1,7 +1,7 @@
 const mongoose = require('moongoose')
 const validator = require('validator')
 
-mongoose.connect('mongodb://127.0.0.1:27017/session7',{
+mongoose.connect('mongodb://127.0.0.1:27017/task5',{
     useNewUrlParser:true,
     useCreateIndex:true,
     useFindAndModify:true,
@@ -22,8 +22,8 @@ name:{
     }
 },
 specialize:{
-    type:String, 
-    required:true
+    type:String,
+   required:true,
 }
 })
 
